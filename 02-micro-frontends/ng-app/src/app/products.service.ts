@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
-function createProduct(id, name, description, itemsInStock, primaryImageUrl = 'product.jpg') {
+function createProduct(id, name, description, itemsInStock) {
+  const primaryImageUrl = `products/${id}.jpg`;
   return {
     id, name, description, itemsInStock, primaryImageUrl
   };
@@ -12,6 +13,6 @@ function createProduct(id, name, description, itemsInStock, primaryImageUrl = 'p
 export class ProductsService {
   products = [
     createProduct(1, 'Cool Product', 'Awesome indeed', 3),
-    createProduct(2, 'Health Masks', 'Much needed', 2),
+    createProduct(2, 'Masks', 'Much needed', 2),
   ];
 }
