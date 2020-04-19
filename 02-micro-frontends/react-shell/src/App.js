@@ -11,14 +11,15 @@ function App() {
   });
 
   return (
-    <div className="App">
-      <div><span>Product List (Angular):</span></div>
-      <div>
+    <div>
+      <div className="app-header"><span>React Store Demo</span></div>
+      <div className="micro-header"><span>Product List (Angular):</span></div>
+      <div className="micro-content">
         <products-list ref={listRef} />
       </div>
-      <div><span>Product Options (Vue):</span></div>
-      <div>
-        <product-options ref={optionsRef}></product-options>
+      <div className="micro-header"><span>Product Options (Vue):</span></div>
+      <div className="micro-content">
+        <product-options ref={optionsRef} />
       </div>
     </div>
   );

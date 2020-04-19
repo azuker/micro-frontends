@@ -1,18 +1,18 @@
-import { Component, ViewEncapsulation, EventEmitter, Output } from '@angular/core';
-import { products } from './products';
+import { Component, ViewEncapsulation, EventEmitter, Output, Input } from '@angular/core';
+import { ProductsService } from './products.service';
 
 @Component({
   selector: 'app-products-list',
   template: `
     <div class="product-list-container">
-      <div class="common-card" *ngFor="let p of products">
+      <div class="common-card" *ngFor="let p of products" [style.backgroundColor]="cardBgColor">
         <div class="product-card-container">
           <img
             class="product-card-primary-image"
             [src]="p.primaryImageUrl"
             alt="product"
           />
-          <div className="product-card-content-container">
+          <div class="product-card-content-container">
             {{p.name}}
           </div>
           <div>
@@ -62,6 +62,12 @@ import { products } from './products';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class ProductsListComponent {
-  products = products;
+  @Input() cardBgColor = 'white';
   @Output() addToCart = new EventEmitter();
+
+  get products() {
+    return this.productsService.products;
+  }
+
+  constructor(private readonly productsService: ProductsService) {}
 }
