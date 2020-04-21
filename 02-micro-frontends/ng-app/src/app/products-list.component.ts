@@ -16,7 +16,7 @@ import { ProductsService } from './products.service';
             {{p.name}}
           </div>
           <div>
-            <button (click)="addToCart.emit(p)">Select</button>
+            <button (click)="productSelected.emit(p)">Select</button>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ import { ProductsService } from './products.service';
 })
 export class ProductsListComponent {
   @Input() cardBgColor = 'white';
-  @Output() addToCart = new EventEmitter();
+  @Output() productSelected = new EventEmitter();
 
   get products() {
     return this.productsService.products;

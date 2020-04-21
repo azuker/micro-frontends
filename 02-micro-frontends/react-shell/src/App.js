@@ -6,7 +6,7 @@ function App() {
   const listRef = useRef(null);
   const optionsRef = useRef(null);
 
-  useEventListener(listRef, 'addToCart', p => {
+  useEventListener(listRef, 'productSelected', p => {
     optionsRef.current.product = p.detail;
   });
 
